@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     int score = 0;
     TextView scoreLabel;
-    Button clickButton;
+    TextView clickButton;
     ImageView appleImage;
 
     int[] appleImageArray = {
@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         appleImage = findViewById(R.id.imageView);
         appleImage.setImageResource(R.drawable.apple0);
 
-        clickButton.setOnClickListener(new View.OnClickListener() {
+        appleImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 score++;
-                int calc = score % 5;
+                int calc = score % appleImageArray.length;
                 appleImage.setImageResource(appleImageArray[calc]);
 
                 scoreLabel.setText(String.valueOf(score));
